@@ -1,0 +1,51 @@
+package com.radio.core
+
+import grails.transaction.Transactional
+import groovy.json.JsonBuilder
+
+@Transactional
+class TrackInfoService {
+
+	def grailsApplication
+	def genreService
+	
+    def getTrackInfoLastFM(title, artist, appendAsURL) {
+		log.info "searching for [ $title ] by $artist"
+		
+		def url = grailsApplication.config.LastFM.url	
+		withRest(url: url) {
+			def response = get(query: [method: 'track.getInfo', api_key: grailsApplication.config.LastFM.api_key, track: title, artist: artist, format: "json"])
+			return response.json
+		}
+    }
+	
+	def extractTrackData (trackInfoJSON){
+		Song song = new Song()	
+		
+		song.title = trackInfoJSON.track.name
+		song.artist = trackInfoJSON.track.artist.name
+		song.album = trackInfoJSON.track.album.title
+		song.lastFMPopuplarity = Long.parseLong(trackInfoJSON.track.playcount.toString())
+		
+		if (trackInfoJSON.track.toptags && trackInfoJSON.track.toptags.tag 
+			&& trackInfoJSON.track.toptags.tag.size() > 0){
+			for (def i=0;i<trackInfoJSON.track.toptags.tag.size();i++){
+				song.addToGenres genreService.createGenre (trackInfoJSON.track.toptags.tag[i].name, true)
+			}
+		}
+		
+		log.info "created a song:"
+		return song
+	}
+	
+	def getYouTubeVideoForSong(Song song){
+		log.info "searching for youtube video [ ${song.title} ] by ${song.artist}"
+		
+		def url = grailsApplication.config.YouTube.url
+		withRest(url: url) {
+			def response = get(query: [q: "${song.title} ${song.artist}", part:"snippet", key: grailsApplication.config.YouTube.api_key, maxResults: 1])
+			log.info response.json.items[0].id.videoId
+			song.link = response.json.items[0].id.videoId
+		}
+	}
+}

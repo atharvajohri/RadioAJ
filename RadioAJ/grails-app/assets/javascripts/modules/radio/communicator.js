@@ -54,7 +54,7 @@ define([], function(){
 	};
 	
 	function makeAJAXRequest(type, url, data, callbacks){
-		url === "songs" ? "/radio/"
+//		url === "songs" ? "/radio/"
 		$.ajax({
 			type: type,
 			url: url,

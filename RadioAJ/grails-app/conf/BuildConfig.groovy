@@ -67,6 +67,7 @@ grails.project.dependency.resolution = {
 		compile ':spring-security-core:2.0-RC4'
 		compile ":spring-websocket:1.0.0"
 		compile ':grooscript:0.7'
+		compile ":wslite:0.7.2.0"
 		
         // plugins needed at runtime but not for compilation
         runtime ":hibernate4:4.3.5.5" // or ":hibernate:3.6.10.17"

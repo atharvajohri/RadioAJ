@@ -142,3 +142,9 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 grooscript {
 	websockets = 'springWebsocketPlugin'
 }
+
+//APIs
+LastFM.url = "http://ws.audioscrobbler.com/2.0/"
+LastFM.api_key = "b79227b86959e3b7a285a3bfb69c025e"
+YouTube.url = "https://www.googleapis.com/youtube/v3/search"
+YouTube.api_key = "AIzaSyDztTvOs9-NKjjHnKaivOEv9CkhWaQG3pM"

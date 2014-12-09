@@ -11,10 +11,10 @@
 		<div id="radio-container">
 			<div id="track-info-container">
 				<span id="track-info-header">Now Playing:</span>
-				<span class="ellipsificable" id="ti-title"></span>
-				<span class="ellipsificable" id="ti-album"></span>
-				<span class="ellipsificable" id="ti-artist"></span>
-				<span class="ellipsificable" id="ti-genre"></span>
+				<span class="ellipsifiable" id="ti-title"></span>
+				<span class="ellipsifiable" id="ti-album"></span>
+				<span class="ellipsifiable" id="ti-artist"></span>
+				<span class="ellipsifiable" id="ti-genre"></span>
 			</div>
 			<div id="radio-viewport">
 				<div id="radio">

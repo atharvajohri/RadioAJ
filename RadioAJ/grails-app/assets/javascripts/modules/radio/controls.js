@@ -10,14 +10,14 @@ define(["radio/communicator"], function(_comm){
 		Utils.showOverlay();
 		if (Utils.isBrowserChrome()){
 			console.log("\nLoading YouTube player...");
-			_comm.getSongs(function(songs){
-				if (songs && songs.length > 0){
+//			_comm.Speak.ask(function(songs){
+//				if (songs && songs.length > 0){
 					require(["modules/loaders/youtubePlayer"], function(_player){
 						g_youtubePlayer = _player;
 						g_youtubePlayer.initYoutubeAPI(onPlayerReady);
 					});
-				}
-			});
+//				}
+//			});
 		}else{
 			alert("No Chrome!");
 		}
