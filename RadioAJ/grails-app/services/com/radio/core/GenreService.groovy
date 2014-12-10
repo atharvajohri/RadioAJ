@@ -6,7 +6,7 @@ import grails.transaction.Transactional
 class GenreService {
 
     def createGenre(name, flush) {
-		log.info "---> Trying to create a genre $name..."
+		log.info "---> Trying to create a genre [ $name ]..."
 		def existingGenre = Genre.findByName(name)
 		if (!existingGenre){
 			existingGenre = new Genre(name: name).save( flush: (flush ?: false) )

@@ -5,7 +5,7 @@ class Song {
 	String title
 	String artist
 	String album
-	String link
+	String videoId
 	
 	String images // ;; separated
 	String lyrics
@@ -21,6 +21,7 @@ class Song {
 		album nullable: true
 		lyrics type: "text", nullable: true
 		images nullable: true
+		videoId nullable: true, unique: true
     }
 	
 	@Override

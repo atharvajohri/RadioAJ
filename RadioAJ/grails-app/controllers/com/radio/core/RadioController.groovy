@@ -33,11 +33,13 @@ class RadioController {
 		}else{
 			responseStatus.saved = false
 			responseStatus.errors = song.errors
-			song.errors.each {
+			song.errors	.each {
 				println it
 			}
 		}
 		
+		log.info "User agent: " + request.getHeader("User-Agent")
+		header "Access-Control-Allow-Origin", 'chrome-extension://ejkkenlggcicffnickkpolbbjnickgje'
 		render responseStatus as JSON
 	}
 }
