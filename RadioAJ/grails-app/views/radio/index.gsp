@@ -28,7 +28,8 @@
 			
 			</div>
 		</div>
-		
+
+		<asset:javascript src="frameworks/knockout.js" />		
 		<asset:javascript src="frameworks/require.min.js" data-main="${resource(dir: 'assets/javascripts', file: 'radio.js')}" />
 		<asset:deferredScripts/>
 	</body>

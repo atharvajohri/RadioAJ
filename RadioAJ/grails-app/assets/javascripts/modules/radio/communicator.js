@@ -54,14 +54,13 @@ define([], function(){
 	};
 	
 	function makeAJAXRequest(type, url, data, callbacks){
-//		url === "songs" ? "/radio/"
 		$.ajax({
 			type: type,
 			url: url,
 			data: data,
-			success: callbacks && callbacks.success && callbacks.success(),
-			error: callbacks && callbacks.error && callbacks.error(),
-			complete: callbacks && callbacks.complete && callbacks.complete(),
+			success: callbacks && callbacks.success ? callbacks.success : null,
+			error: callbacks && callbacks.error ? callbacks.error : null,
+			complete: callbacks && callbacks.complete ? callbacks.complete : null
 		});
 	}
 	

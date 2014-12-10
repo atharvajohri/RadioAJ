@@ -11,7 +11,7 @@ class RadioController {
 	
     def index() { }
 	
-	@MessageMapping("/hello")
+	/*@MessageMapping("/hello")
     @SendTo("/topic/hello")
     protected String hello(Map map) {
         return (map as JSON)?.toString()
@@ -20,6 +20,21 @@ class RadioController {
 	def getTrackInfo(){
 		log.info "$params.title $params.artist"
 		render trackInfoService.extractTrackData (trackInfoService.getTrackInfoLastFM(params.title, params.artist, null))
+	}*/
+	
+	
+	def getTracks(){
+		
+		params.offset = params.offset ? Long.parseLong(params.offset.toString()) : 0
+		params.max = params.max ? Long.parseLong(params.max.toString()) : 0
+		
+		def songs = Song.list (max: params.max ?: 3, offset: params.offset ?: 0)
+		def responseJSON = [
+			songList: songs,
+			offset: (params.offset + (params.max ?: 3) )	
+		]
+		
+		render responseJSON as JSON
 	}
 	
 	def createCustomTrack(){

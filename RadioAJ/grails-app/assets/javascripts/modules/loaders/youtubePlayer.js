@@ -6,15 +6,17 @@ define([], function() {
 				window.onYouTubeIframeAPIReady = function() {
 					onSuccess && typeof onSuccess === "function" && onSuccess();
 				};
-
+				window.onYouTubePlayerReady = function(){
+					console.log(" ---> Player is ready.")
+				};
 				$.getScript('//www.youtube.com/iframe_api');
 			}else{
 				onSuccess && typeof onSuccess === "function" && onSuccess();
 			}
 		},
 
-		loadPlayer : function(container, videoId) {
-			new YT.Player(container, {
+		loadPlayer : function(container, videoId, onStateChange) {
+			return new YT.Player(container, {
 				videoId : videoId,
 				width : 650,
 				height : 370,
@@ -24,7 +26,8 @@ define([], function() {
 					modestbranding : 1,
 					rel : 0,
 					showInfo : 0
-				}
+				},
+				onStateChange: onStateChange
 			});
 		}
 	};
