@@ -1,0 +1,1 @@
+window.OpenOpts={YouTube:{https:!1},Comm:{ws:!1}};

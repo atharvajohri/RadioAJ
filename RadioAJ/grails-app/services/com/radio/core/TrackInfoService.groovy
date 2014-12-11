@@ -19,6 +19,17 @@ class TrackInfoService {
 		}
     }
 	
+	def makeRestCall(url, parameters){
+		withRest(url: url) {
+			def response = get(query: parameters)
+			log.info (response)
+			log.info "\n-----------"
+			response.properties.each{
+				log.info it
+			}
+		}
+	}
+	
 	def extractTrackData (trackInfoJSON){
 		Song song = new Song()	
 		
