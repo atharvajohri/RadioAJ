@@ -29,7 +29,6 @@
 			<div id="main-radio-logo" role="banner">
 				Radio<b>AJ</b>
 			</div>
-			<b>Under Construction</b>
 			<g:layoutBody/>
 			
 			<div class="footer" role="contentinfo"></div>

@@ -66,4 +66,22 @@ class TrackInfoService {
 			
 		}
 	}
+	
+	def getYouTubeVideoIdByQuery(query){
+		log.info "searching for youtube video by query $query"
+		
+		def videoId = null
+		def url = grailsApplication.config.YouTube.url
+		withRest(url: url) {
+			def response = get(query: [q: query, part:"snippet", key: grailsApplication.config.YouTube.api_key, maxResults: 1])
+			if (response.json?.items[0]?.id?.videoId){
+				log.info "found video id for query: [ $response.json.items[0].id.videoId ]"
+				videoId = response.json.items[0].id.videoId
+			}else{
+				log.warn "did not find youtube video.. continuing anyway"
+			}
+		}
+		
+		return videoId
+	}
 }
