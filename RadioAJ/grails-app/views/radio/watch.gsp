@@ -52,7 +52,7 @@
 		<div class="common-container title-container">
 			<b>Atharva's anytime YouTube player!</b>
 			<br>
-			This is BETA project developed while building <b>RadioAJ</b>, an online Radio station based on YouTube.<br> 
+			This is BETA project developed while building <b>RadioJohri</b>, an online Radio station based on YouTube.<br> 
 			If you want to contribute, drop a mail to da man: [ johri.atharva@gmail.com ]<br>
 			<br>
 			To learn to live with an aberration is to become a part of the aberration yourself. 
@@ -60,17 +60,17 @@
 		<div class="common-container">
 			<b>URL takes preference over keyword if you enter both..!</b>
 			<br>
-			Enter URL: <input type="text" id="video-url" /> 
+			Enter URL: <input type="text" id="video-url" /> Eg. http://www.youtube.com/watch?v=h0G1Ucw5HDg 
 			<br>OR<br>
 			Enter Search Keyword/s: <input type="text" id="video-keyword" /><br><br>
 			<input type="button" value="Click to Search" id="search-video">
 		</div>
 		<div class="common-container player-container">
-			<video id="player-aj" width="640" height="360" controls></video>
+			<video id="player-aj" width="640" height="0" controls></video>
 		</div>
 		<div class="common-container">
-			<b>EXTREMELY IMPORTANT!!!</b>
-			<b>If you liked this program, do let <a href="https://www.facebook.com/atharva.johri">Atharva</a> know by buying him lunch :D</b>
+			<b>EXTREMELY IMPORTANT!!!</b><br>
+			<b>If you liked this program, do let <a href="https://www.facebook.com/atharva.johri">Atharva</a> know by buying him dark chocolate or lunch :)</b>
 		</div>
 	</body>
 </html>

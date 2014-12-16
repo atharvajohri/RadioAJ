@@ -27,7 +27,7 @@
 	<body>
 		<div id="main-container">
 			<div id="main-radio-logo" role="banner">
-				Radio<b>AJ</b>
+				Radio<b>Johri</b>
 			</div>
 			<g:layoutBody/>
 			

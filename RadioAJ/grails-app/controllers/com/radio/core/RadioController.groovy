@@ -42,11 +42,11 @@ class RadioController {
 	}
 	
 	def getYoutube(){
-		def url = params.url
-		
+		def url = params.videoId ? "http://www.youtube.com/watch?v=${params.videoId}" : params.url
+		def videoId = params.videoId ?: 0
 		if (!url && params.keyword){
 			log.info "No URL found, searching by title and artist"
-			def videoId = trackInfoService.getYouTubeVideoIdByQuery(params.keyword)
+			videoId = trackInfoService.getYouTubeVideoIdByQuery(params.keyword)
 			if (videoId)
 				url = "http://www.youtube.com/watch?v=${videoId}"
 		}else{
@@ -54,12 +54,12 @@ class RadioController {
 		}
 
 		def rnd = 0
-		if (url){
+		if (url && videoId){
 			println "-----------------..-----------------"
 			rnd = new Random().nextInt(10 * 99999)
 			try {
-				utilService.runProcess("/usr/local/bin/youtube-dl -o /home/ubuntu/video/${rnd.toString()}.mp4 ${url}")
-				utilService.runProcess("mv /home/ubuntu/video/${rnd.toString()}.mp4 /var/lib/tomcat7/webapps/ROOT/video")
+				utilService.runProcess("/usr/local/bin/youtube-dl -o /home/ubuntu/video/${videoId.toString()}.mp4 ${params.audio ? '--extract-audio --audio-format mp3' : ''} ${url}")
+				utilService.runProcess("mv /home/ubuntu/video/${videoId.toString()}.${params.audio ? 'mp3' : 'mp4'} /var/lib/tomcat7/webapps/ROOT/video")
 			}
 			catch (IOException e) {
 				System.out.println("exception happened - here's what I know: ");
@@ -69,13 +69,25 @@ class RadioController {
 		}
 		
 		def result = [
-			"fileName": rnd
+			"fileName": videoId
 		]		
 		render result as JSON
 	}
 	
+	@Secured(['ROLE_ADMIN'])
 	def watch(){
 		
+	}
+	
+	@Secured(['ROLE_ADMIN'])
+	def myStation(){
+		
+	}
+	
+	@Secured(['ROLE_ADMIN'])
+	def getAllTracks(){
+		def responseData = [videoIdList: Song.list()]
+		render responseData as JSON
 	}
 	
 	def createCustomTrack(){

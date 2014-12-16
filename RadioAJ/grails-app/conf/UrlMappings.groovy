@@ -7,7 +7,7 @@ class UrlMappings {
             }
         }
 		"/getTracks" (controller: "radio", action: "getTracks")
-        "/"(controller: "radio", view: "index")
+        "/"(controller: "radio", action: "watch")
         "500"(view:'/error')
 		"/youtube"(controller: "radio", action: "watch")
 		"/getYouTube"(controller: "radio", action: "getYoutube")
