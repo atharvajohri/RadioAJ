@@ -21,5 +21,6 @@ class UtilService {
 		
 		System.out.println("Process exitValue: " + result)
 
+		return result
     }
 }

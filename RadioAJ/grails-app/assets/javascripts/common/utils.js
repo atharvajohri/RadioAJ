@@ -10,7 +10,13 @@ var BindingUtils = {};
 var ElementUtils = {};
 
 Utils.isBrowserChrome = function(){
-	return window.chrome ? true : false;
+	var isChromium = window.chrome,
+		vendorName = window.navigator.vendor;
+	if(isChromium !== null && isChromium !== undefined && vendorName === "Google Inc.") {
+		return true;
+	}
+	
+	return false;
 };
 
 Utils.shuffleArray = function(array) {

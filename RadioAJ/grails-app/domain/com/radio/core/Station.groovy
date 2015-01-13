@@ -1,11 +1,13 @@
 package com.radio.core
 
+
 class Station {
 
 	String name
 	Date dateCreated
 	
-	static hasMany = [songs: Song]
+	static hasMany = [songs: Song, genres: Genre]
+	static belongsTo = [profile: Profile]
 	
     static constraints = {
 		name blank: false, nullable: false

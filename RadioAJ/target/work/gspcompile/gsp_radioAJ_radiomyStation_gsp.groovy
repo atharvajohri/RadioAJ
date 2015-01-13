@@ -23,18 +23,22 @@ invokeTag('captureTitle','sitemesh',6,[:],3)
 invokeTag('wrapTitleTag','sitemesh',6,[:],2)
 printHtmlPart(3)
 })
-invokeTag('captureHead','sitemesh',108,[:],1)
+invokeTag('captureHead','sitemesh',22,[:],1)
 printHtmlPart(4)
-createClosureForHtmlPart(5, 1)
-invokeTag('captureBody','sitemesh',128,[:],1)
+createTagBody(1, {->
+printHtmlPart(5)
+invokeTag('javascript','asset',60,['src':("modules/radio/station.js")],-1)
 printHtmlPart(6)
+})
+invokeTag('captureBody','sitemesh',61,[:],1)
+printHtmlPart(7)
 }
 public static final Map JSP_TAGS = new HashMap()
 protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1418724257187L
+public static final long LAST_MODIFIED = 1421043442300L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

@@ -15,26 +15,20 @@ printHtmlPart(0)
 createTagBody(1, {->
 printHtmlPart(1)
 invokeTag('captureMeta','sitemesh',5,['gsp_sm_xmlClosingForEmptyTag':("/"),'name':("layout"),'content':("main")],-1)
-printHtmlPart(1)
-createTagBody(2, {->
-createClosureForHtmlPart(2, 3)
-invokeTag('captureTitle','sitemesh',6,[:],3)
+printHtmlPart(2)
 })
-invokeTag('wrapTitleTag','sitemesh',6,[:],2)
+invokeTag('captureHead','sitemesh',52,[:],1)
 printHtmlPart(3)
-})
-invokeTag('captureHead','sitemesh',50,[:],1)
-printHtmlPart(4)
-createClosureForHtmlPart(5, 1)
-invokeTag('captureBody','sitemesh',75,[:],1)
-printHtmlPart(6)
+createClosureForHtmlPart(4, 1)
+invokeTag('captureBody','sitemesh',85,[:],1)
+printHtmlPart(5)
 }
 public static final Map JSP_TAGS = new HashMap()
 protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1418709063577L
+public static final long LAST_MODIFIED = 1420714220309L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

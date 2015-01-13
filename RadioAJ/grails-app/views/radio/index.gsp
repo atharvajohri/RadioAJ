@@ -2,8 +2,6 @@
 <html>
 	<head>
 		<meta name="layout" content="main"/>
-		<title>RadioAJ</title>
-		
     	<asset:javascript src="spring-websocket" />
 	</head>
 	<body>

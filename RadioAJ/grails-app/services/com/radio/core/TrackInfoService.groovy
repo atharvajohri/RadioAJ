@@ -19,6 +19,29 @@ class TrackInfoService {
 		}
     }
 	
+	def getWiki(Song song){
+		def found = false
+		
+		if (song.artist){
+			log.info "Getting info for artist $song.artist"
+			
+			withRest(url: grailsApplication.config.Wikipedia.url) {
+				def response = get(query: [action: 'query', titles: song.artist.replaceAll(" ", "_"), inprop: "url", continue: "", prop: "info", format: "json"])
+				
+				def foundPages = response.json.query.pages
+				if (foundPages.size() > 0){
+					def pageData = response.json.query.pages.values().iterator().next()
+					song.infoURLs += ";${pageData.fullurl}";
+					found = true;
+				}
+			}
+		}else{
+			log.info "No artist for $song.title"
+		}
+		
+		return found
+	}
+	
 	def makeRestCall(url, parameters){
 		withRest(url: url) {
 			def response = get(query: parameters)

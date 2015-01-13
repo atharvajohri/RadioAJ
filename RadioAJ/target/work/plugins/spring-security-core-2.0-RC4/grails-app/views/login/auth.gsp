@@ -1,4 +1,4 @@
-<html>
+	<html>
 <head>
 	<meta name='layout' content='main'/>
 	<title><g:message code="springSecurity.login.title"/></title>
@@ -85,6 +85,27 @@
 </head>
 
 <body>
+
+<p style="font-size: 12px;text-align: center;background:#fff;padding:10px;">
+	Password changes regularly!
+	Contact <b>Atharva</b> for the new one.
+	<br><br><%--
+	There will come a day, <br>
+	a fleeting moment of revelation.. <br>
+	No matter what I say,<br>
+	will be all of an aberration.<br><br>
+	I waited a thousand years<br>
+	I could wait a million more..<br>
+	But they still linger, my fears<br>
+	Till I reach the sands of my shore.<br><br>
+	My ship is bound for unknown waters,<br>
+	My heart beats for lands unseen,<br>
+	A past life memory shatters..<br>
+	A future in the distant gleams.<br><br>
+	<b>Remember me when I'm gone :)</b>
+--%>
+	A LOT of new music to station! Do check it out :)
+</p>
 <div id='login'>
 	<div class='inner'>
 		<div class='fheader'><g:message code="springSecurity.login.header"/></div>
@@ -92,7 +113,7 @@
 		<g:if test='${flash.message}'>
 			<div class='login_message'>${flash.message}</div>
 		</g:if>
-
+		
 		<form action='${postUrl}' method='POST' id='loginForm' class='cssform' autocomplete='off'>
 			<p>
 				<label for='username'><g:message code="springSecurity.login.username.label"/>:</label>

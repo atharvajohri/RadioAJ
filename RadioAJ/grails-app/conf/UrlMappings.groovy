@@ -11,5 +11,10 @@ class UrlMappings {
         "500"(view:'/error')
 		"/youtube"(controller: "radio", action: "watch")
 		"/getYouTube"(controller: "radio", action: "getYoutube")
+		"/myStation"(controller: "radio", action: "myStation")
+		"/songPicker"(controller: "radio", action: "songPicker")
+		"/getMusic"(controller: "radio", action: "getMusic")
+		"/updatePlayCount"(controller: "radio", action: "updatePlayCount")
+		"/getLeastHeardSong"(controller: "radio", action: "getLeastHeardSong")
 	}
 }

@@ -15,36 +15,30 @@ printHtmlPart(0)
 createTagBody(1, {->
 printHtmlPart(1)
 invokeTag('captureMeta','sitemesh',4,['gsp_sm_xmlClosingForEmptyTag':("/"),'name':("layout"),'content':("main")],-1)
-printHtmlPart(1)
-createTagBody(2, {->
-createClosureForHtmlPart(2, 3)
-invokeTag('captureTitle','sitemesh',5,[:],3)
-})
-invokeTag('wrapTitleTag','sitemesh',5,[:],2)
+printHtmlPart(2)
+invokeTag('javascript','asset',5,['src':("spring-websocket")],-1)
 printHtmlPart(3)
-invokeTag('javascript','asset',7,['src':("spring-websocket")],-1)
-printHtmlPart(4)
 })
-invokeTag('captureHead','sitemesh',8,[:],1)
-printHtmlPart(4)
+invokeTag('captureHead','sitemesh',6,[:],1)
+printHtmlPart(3)
 createTagBody(1, {->
-printHtmlPart(5)
-invokeTag('javascript','asset',32,['src':("frameworks/knockout.js")],-1)
-printHtmlPart(6)
-invokeTag('javascript','asset',33,['src':("frameworks/require.min.js"),'data-main':(resource(dir: 'assets/javascripts', file: 'radio.js'))],-1)
-printHtmlPart(1)
-invokeTag('deferredScripts','asset',34,[:],-1)
 printHtmlPart(4)
+invokeTag('javascript','asset',30,['src':("frameworks/knockout.js")],-1)
+printHtmlPart(5)
+invokeTag('javascript','asset',31,['src':("frameworks/require.min.js"),'data-main':(resource(dir: 'assets/javascripts', file: 'radio.js'))],-1)
+printHtmlPart(1)
+invokeTag('deferredScripts','asset',32,[:],-1)
+printHtmlPart(3)
 })
-invokeTag('captureBody','sitemesh',35,[:],1)
-printHtmlPart(7)
+invokeTag('captureBody','sitemesh',33,[:],1)
+printHtmlPart(6)
 }
 public static final Map JSP_TAGS = new HashMap()
 protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1418646289075L
+public static final long LAST_MODIFIED = 1418968691978L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

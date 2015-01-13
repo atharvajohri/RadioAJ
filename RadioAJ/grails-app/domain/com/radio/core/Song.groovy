@@ -13,6 +13,10 @@ class Song {
 	Long playCount = 0
 	Long lastFMPopuplarity = 0
 
+	String infoURLs
+	
+	Boolean enabled = true
+	
 	static hasMany = [genres: Genre]
 	    
 	static constraints = {
@@ -22,6 +26,7 @@ class Song {
 		lyrics type: "text", nullable: true
 		images nullable: true
 		videoId nullable: true, unique: true
+		infoURLs nullable: true
     }
 	
 	@Override
