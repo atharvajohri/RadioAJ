@@ -99,12 +99,13 @@ class RadioController {
 	
 	@Secured(['ROLE_ADMIN'])
 	def getLeastHeardSong(){
-		def songs = Song.where {
+		def songs = Song.where { prop1 ->
 			enabled == true && playCount == min(playCount)
 		}
 	
 		def songList = []
 		songs.each {
+			log.info it
 			songList.push(it)
 		}
 		

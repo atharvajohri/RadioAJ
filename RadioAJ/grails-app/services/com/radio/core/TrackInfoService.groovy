@@ -56,6 +56,18 @@ class TrackInfoService {
 	def extractTrackData (trackInfoJSON){
 		Song song = new Song()	
 		
+		if (!trackInfoJSON.track){
+			trackInfoJSON.track = [:]
+			trackInfoJSON.track.name = "Unknown Track"
+			trackInfoJSON.track.playcount = 0
+			
+			trackInfoJSON.track.artist = [:]
+			trackInfoJSON.track.artist.name = "Unknown Artist"
+			
+			trackInfoJSON.track.album = [:]
+			trackInfoJSON.track.album.name = "Unknown Album"
+		}
+		
 		song.title = trackInfoJSON.track.name
 		song.artist = trackInfoJSON.track.artist?.name
 		song.album = trackInfoJSON.track.album?.title
