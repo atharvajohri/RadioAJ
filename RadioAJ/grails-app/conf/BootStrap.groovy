@@ -1,6 +1,7 @@
 import com.radio.security.Role
 import com.radio.security.Users
 import com.radio.security.UserRole
+import com.topcorner.core.League;
 
 class BootStrap {
 
@@ -16,6 +17,14 @@ class BootStrap {
 			adminUser.save(flush: true)
 	  
 			UserRole.create adminUser, adminRole, true
+		}
+		
+		if (League.count() == 0){
+			//create league
+			def eplLeague = new League()
+			eplLeague.name = "English Premier League"
+			eplLeague.save(flush: true)
+			
 		}
 		
     }
